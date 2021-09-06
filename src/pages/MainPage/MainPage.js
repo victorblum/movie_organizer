@@ -5,7 +5,7 @@ import SearchBox from '../../components/SearchBox/SearchBox';
 import Movies from '../../components/Movies/Movies';
 import Favorites from '../../components/Favorites/Favorites';
 
-class MainPage extends Component {
+export default class MainPage extends Component {
     render() { 
         return (
             <div className="main-page">
@@ -27,5 +27,3 @@ class MainPage extends Component {
         );
     }
 }
- 
-export default MainPage;

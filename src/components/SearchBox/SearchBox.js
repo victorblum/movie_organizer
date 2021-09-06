@@ -1,15 +1,33 @@
 import React, { Component } from 'react';
+import store from '../Redux/Store';
 import './SearchBox.css';
 
-class SearchBox extends Component {
+export default class SearchBox extends Component {
     state = {
         searchLine: ''
     }
+
     searchLineChangeHandler = (e) => {
         this.setState({ searchLine: e.target.value });
     }
+
     searchBoxSubmitHandler = (e) => {
         e.preventDefault();
+        fetch(`http://www.omdbapi.com/?s=${this.state.searchLine}&apikey=640ec5e5`)
+        .then(response => response.json())
+        .then(data => {
+            if(!data.Search) {
+                alert('Фильмы по запросу отсутствуют');
+                return;
+            } 
+            const movieList = data.Search;
+            store.dispatch({
+                type: 'SHOW_MOVIES',
+                payload: {
+                    movieList: movieList
+                }
+            })
+        })
     }
     render() {
         const { searchLine } = this.state;
@@ -39,5 +57,3 @@ class SearchBox extends Component {
         );
     }
 }
- 
-export default SearchBox;

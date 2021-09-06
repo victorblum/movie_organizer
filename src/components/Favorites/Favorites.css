@@ -16,6 +16,13 @@
 .favorites__list {
     margin-bottom: 24px;
 }
+ 
+.favorites__list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+}
 
 .favorites__save {
     border: none;
@@ -26,8 +33,36 @@
     transition: all 0.2s linear;
 }
 
-.favorites__save:hover {
+.favorites__save:hover:not(:disabled) {
+    opacity: 0.8;
     cursor: pointer;
-    opacity: 0.9;
     transition: all 0.2s linear;
+    background-color: #496DDB;
+    color: #FFEEDB;
 }
+
+.favorites__save:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.favoritesLink {
+    border: none;
+    background-color: #496DDB;
+    padding: 10px 15px;
+    color: #FFEEDB;
+    font-size: 14px;
+    transition: all 0.2s linear;
+    text-decoration: none;
+    /* display: none; */
+}
+
+.favoritesLink:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    background-color: #496DDB;
+    color: #FFEEDB;
+}
+
+
