@@ -5,21 +5,29 @@ import './Favorites.css';
 //ВАЖНО
 // уже в списке проверка
 // кнопка не активна - disabled !movie
-// дизайн страницы - высоту задать
+
 // презентация - что такое реакт и по всем компонентам
+// - в каком виде получил задачу,
+// - с какими трудностями столкнулся,
+// - как решал задачу,
+// - с какими проблемами встретился в процессе работы и как их решал.
+
 
 //НЕ ВАЖНО
 // менять кнопку на добавлено
 // короткое описание фильма
 // выплывающее окно отлов ошибок
 // выплывающее окно не найденных фильмов
+// название списка «New list»
 // Action.js
+// Приложение должно быть доступно для использования на мобильных устройствах.
 
 export default class Favorites extends Component {
     state = {
         searchLine: '',
         movies: [],
         listId: '',
+        disabledInput: false,
         showButton: 'block',
         showLink: 'none'
     };
@@ -63,7 +71,8 @@ export default class Favorites extends Component {
         .then(res => res.json())
         .then(data => {
             this.setState({ 
-                listId: `http://localhost:3000/list/${data.id}`, 
+                listId: `http://localhost:3000/list/${data.id}`,
+                disabledInput: true, 
                 showButton: 'none',
                 showLink: 'inline-block'
             });
@@ -72,7 +81,7 @@ export default class Favorites extends Component {
     };
  
     render() { 
-        const { searchLine, listId, showButton, showLink } = this.state;
+        const { searchLine, listId, disabledInput, showButton, showLink } = this.state;
 
         return (
             <div className="favorites">
@@ -86,6 +95,7 @@ export default class Favorites extends Component {
                         className="favorites__name" 
                         placeholder="Enter the name of the list"
                         onChange={this.searchLineChangeHandler}
+                        disabled={disabledInput}
                     />
                     <ul className="favorites__list">
                         {this.state.movies.map((item) => {
@@ -96,6 +106,7 @@ export default class Favorites extends Component {
                                     type="button" 
                                     className="favorites__delete" 
                                     onClick={() => this.deleteFromFavorites(item.imdbID)}
+                                    disabled={disabledInput}
                                 >
                                     &#10008;
                                     </button>

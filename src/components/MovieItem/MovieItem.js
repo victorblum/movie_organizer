@@ -5,8 +5,19 @@ import './MovieItem.css';
 export default class MovieItem extends Component {
     state = { 
         movies: this.props,
+        // deleteItem: '',
         clicked: false
     };
+
+    // componentDidMount() {
+    //     store.subscribe(() => {
+    //         const state = store.getState();
+    //         this.setState({ 
+    //             deleteItem: state.deleteItem
+    //         })
+    //         console.log(this.state.deleteItem);
+    //     })
+    // };
 
     addClick = () => {
         if (this.clicked) {

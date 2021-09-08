@@ -1,7 +1,7 @@
 const initialState = {
     movies: [],
     favouriteMovies: [],
-    deleteItem: ''
+    // deleteItem: ''
 }
 
 function reducer (state = initialState, action) {
@@ -14,6 +14,7 @@ function reducer (state = initialState, action) {
             return {...state,favouriteMovies};
         case 'DELETE_MOVIES':
             const id = action.payload.imdbID;
+            // ...state,deleteItem: state.deleteItem = id;
             return {...state,favouriteMovies: state.favouriteMovies.filter((item)=> item.imdbID !== id) };
         default:
           return state;
