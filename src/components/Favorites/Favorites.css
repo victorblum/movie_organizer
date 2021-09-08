@@ -1,7 +1,10 @@
 .favorites {
     box-sizing: border-box;
-    border: 1px solid rgba(0, 8, 7);
+    border: 3px solid #121212;
     padding: 30px 20px;
+    color: white;
+    background-color: #121212;
+    border-radius: 3%;
 }
 
 .favorites__name {
@@ -11,6 +14,7 @@
     padding: 5px 10px;
     border: 1px solid rgba(0, 8, 7, .5);
     margin-bottom: 24px;
+    outline-color: black;
 }
 
 .favorites__list {
@@ -26,19 +30,19 @@
 
 .favorites__save {
     border: none;
-    background-color: #496DDB;
+    background-color: #121212;
     padding: 10px 15px;
-    color: #FFEEDB;
+    color: #F5C518;
     font-size: 14px;
     transition: all 0.2s linear;
 }
 
 .favorites__save:hover:not(:disabled) {
-    opacity: 0.8;
+    opacity: 0.9;
     cursor: pointer;
     transition: all 0.2s linear;
-    background-color: #496DDB;
-    color: #FFEEDB;
+    background-color: #F5C518;
+    color: #121212;
 }
 
 .favorites__save:disabled {
@@ -48,21 +52,44 @@
 
 .favoritesLink {
     border: none;
-    background-color: #496DDB;
+    background-color: #121212;
     padding: 10px 15px;
-    color: #FFEEDB;
+    color: #F5C518;
     font-size: 14px;
     transition: all 0.2s linear;
     text-decoration: none;
-    /* display: none; */
+    width: auto;
 }
 
 .favoritesLink:hover {
-    opacity: 0.8;
+    opacity: 0.9;
     cursor: pointer;
     transition: all 0.2s linear;
-    background-color: #496DDB;
-    color: #FFEEDB;
+    background-color: #F5C518;
+    color: #121212;
+}
+
+.favorites__delete {
+    background-color: #121212;
+    color: #F5C518;
+    border: none;
+    width: 25px;
+    height: 25px;
+}
+
+.favorites__delete:hover {
+    opacity: 0.9;
+    cursor: pointer;
+    background-color: #F5C518;
+    color: #121212;
+    border-radius: 50%;
+}
+
+.favorites__title {
+    font-family: 'Luckiest Guy', cursive;
+    color: #F5C518;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
 

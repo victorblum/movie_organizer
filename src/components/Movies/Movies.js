@@ -6,7 +6,7 @@ import './Movies.css';
 export default class Movies extends Component {
     state = { 
         movies: []
-    }
+    };
 
     componentDidMount() {
         store.subscribe(() => {
@@ -14,8 +14,8 @@ export default class Movies extends Component {
           this.setState({ 
             movies: state.movies
           });
-        });
-    }
+        })
+    };
     
     render() { 
         return ( 
@@ -24,7 +24,7 @@ export default class Movies extends Component {
                     <li className="movies__item" key={movie.imdbID}>
                         <MovieItem {...movie} />
                     </li>
-                ))}
+                ))};
             </ul>
         );
     }

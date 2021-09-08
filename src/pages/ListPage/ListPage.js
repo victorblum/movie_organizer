@@ -4,7 +4,8 @@ import './ListPage.css';
 export default class ListPage extends Component {
     state = {
         movies: []
-    }
+    };
+
     componentDidMount() {
         const id = this.props.match.params.id;
 
@@ -18,25 +19,26 @@ export default class ListPage extends Component {
                 .then(res => res.json())
                 .then(data => {
                     description.push(data);
-                    this.setState({ movies: description });
-                })
-            });
+                    this.setState({ movies: description })
+                });
+            })
         })
-    }
+        .catch((err) => console.log(err));
+    };
 
     render() { 
-        const { title } = this.state
+        const { title } = this.state;
         return (
             <div className="list-page">
                 <h1 className="list-page__title">{title}</h1>
-                <ul>
+                <ul className="list__favorites">
                     {this.state.movies.map((item) => {
                         return (
                             <li key={item.imdbID}>
                                 <a href={'https://www.imdb.com/title/' + item.imdbID} target="_blank" rel="noopener noreferrer">{item.Title} ({item.Year})</a>
                             </li>
                         );
-                    })}
+                    })};
                 </ul>
             </div>
         );

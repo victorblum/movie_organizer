@@ -2,6 +2,7 @@
     padding: 42px calc(50% - 500px);
     display: flex;
     justify-content: space-between;
+    background-color: black;
 }
 
 .main-page__main-section {
