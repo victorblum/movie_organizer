@@ -1,3 +1,3 @@
 # movie-organizer
 
-Starter for Module 4 project in Algoritmika Coding Bootcamp
+The app allows to create and share movie lists.
