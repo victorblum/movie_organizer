@@ -1,3 +1,12 @@
+//НЕ ВАЖНО
+// кнопка не активна - disabled !movie
+// менять кнопку на добавлено
+// короткое описание фильма
+// выплывающее окно отлов ошибок
+// выплывающее окно не найденных фильмов
+// Action.js
+// Приложение должно быть доступно для использования на мобильных устройствах.
+
 const initialState = {
     movies: [],
     favouriteMovies: []
@@ -10,7 +19,7 @@ function reducer (state = initialState, action) {
         case 'ADD_MOVIES':
             const favourite = action.payload.myFavouriteMovies;
             const findFavorite = state.favouriteMovies.find((item) => item.imdbID === favourite.imdbID);
-            if(findFavorite === undefined) {
+            if(!findFavorite) {
                 const favouriteMovies = [...state.favouriteMovies, favourite];
                 return {...state,favouriteMovies};
             }
