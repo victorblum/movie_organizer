@@ -12,12 +12,17 @@
 }
 
 .list-page ul li {
-    margin-bottom: 10px;
+    line-height: 2;
 }
 
 .list-page a {
     font-size: 18px;
     color: white;
+    text-decoration: none;
+}
+
+.list-page a:hover {
+    text-decoration: underline;
 }
 
 .list__favorites {

@@ -17,9 +17,9 @@ export default class SearchBox extends Component {
         .then(response => response.json())
         .then(data => {
             if(!data.Search) {
-                alert('No movies on request');
+                alert('RESULT: No movies found on request');
                 return;
-            } 
+            }
             const movieList = data.Search;
             store.dispatch({
                 type: 'SHOW_MOVIES',

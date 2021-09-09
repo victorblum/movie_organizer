@@ -1,21 +1,23 @@
 const initialState = {
     movies: [],
-    favouriteMovies: [],
-    // deleteItem: ''
+    favouriteMovies: []
 }
 
 function reducer (state = initialState, action) {
     switch(action.type) {
         case 'SHOW_MOVIES':
-            const movies = [ ...state.movies = action.payload.movieList ];
-            return {...state,movies};
+            return {...state,movies: [...action.payload.movieList]};
         case 'ADD_MOVIES':
-            const favouriteMovies = [ ...state.favouriteMovies, action.payload.myFavouriteMovies ];
-            return {...state,favouriteMovies};
+            const favourite = action.payload.myFavouriteMovies;
+            const findFavorite = state.favouriteMovies.find((item) => item.imdbID === favourite.imdbID);
+            if(findFavorite === undefined) {
+                const favouriteMovies = [...state.favouriteMovies, favourite];
+                return {...state,favouriteMovies};
+            }
+            return state;
         case 'DELETE_MOVIES':
-            const id = action.payload.imdbID;
-            // ...state,deleteItem: state.deleteItem = id;
-            return {...state,favouriteMovies: state.favouriteMovies.filter((item)=> item.imdbID !== id) };
+            const findId = [...state.favouriteMovies.filter((item)=> item.imdbID !== action.payload.imdbID)];
+            return {...state,favouriteMovies: findId};
         default:
           return state;
       }
